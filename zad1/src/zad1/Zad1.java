@@ -44,3 +44,18 @@ public class Zad1 {
 	}
 
 }
+
+public Class Callback
+{
+	private boolean flag;
+	
+	public boolean getFlag()
+	{
+		return this.flag;
+	}
+	
+	public void (boolean flag)
+	{
+		this.flag = flag;
+	}
+}
