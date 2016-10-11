@@ -1,17 +1,18 @@
 package zad1;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Zad1 {
 	
-	public void (String... parameters, Callback callback)
+	public static void saveToFile(String[] parameters, Callback callback)
 	{
 		File file = new File(parameters[0]);
-		PrintWriter zapis = new PrinWriter(parameters[0]);
-		
+		PrintWriter zapis = null;
 		try
 		{
+			 zapis = new PrintWriter(parameters[0]);
 			zapis.println("Hello world");
 		}
 		catch(Exception e)
@@ -28,7 +29,6 @@ public class Zad1 {
 		
 		callback.setFlag(true);
 		
-		
 	}
 
 	public static void main(String[] args) {
@@ -36,6 +36,7 @@ public class Zad1 {
 
 		String[] parameters = new String[3];
 		Scanner input = new Scanner(System.in);
+		Callback callback = new Callback();
 		
 		System.out.println("Prosze podac nazwe pliku");
 		parameters[0] = input.next();
@@ -43,26 +44,18 @@ public class Zad1 {
 		parameters[1] = input.next();
 		System.out.println("Prosze podac tresc 'niepoprawnego' ciagu znakow");
 		parameters[2] = input.next();
+		
+		saveToFile(parameters, callback);
+		
+		if(callback.getPath())
+		{
+			System.out.println("Prosze podac inna nazwe pliku");
+			parameters[0] = input.next();
+			
+			saveToFile(parameters, callback);
+		}
+		
 	}
 
 }
 
-public Class Callback
-{
-	private boolean flag;
-	
-	public Callback(boolean flag)
-	{
-		this.flag = flag;
-	}
-	
-	public boolean getFlag()
-	{
-		return this.flag;
-	}
-	
-	public void (boolean flag)
-	{
-		this.flag = flag;
-	}
-}
