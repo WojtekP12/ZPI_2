@@ -12,23 +12,20 @@ public class Zad1 {
 		PrintWriter zapis = null;
 		try
 		{
-			 zapis = new PrintWriter(parameters[0]);
+			zapis = new PrintWriter(parameters[0]);
 			zapis.println("Hello world");
+			zapis.close();
 		}
 		catch(Exception e)
 		{
-			callback.setFlag(false);
 			System.out.println(parameters[2]);
+			callback.setFlag(false);
 		}
-		finally
-		{
-			zapis.close();
-		}
+		
 		
 		System.out.println(parameters[1]);
 		
 		callback.setFlag(true);
-		
 	}
 
 	public static void main(String[] args) {
@@ -54,7 +51,7 @@ public class Zad1 {
 			
 			saveToFile(parameters, callback);
 		}
-		
+		input.close();
 	}
 
 }
