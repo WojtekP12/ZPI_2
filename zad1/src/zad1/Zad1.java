@@ -16,6 +16,7 @@ public class Zad1 {
 		}
 		catch(Exception e)
 		{
+			callback.setFlag(false);
 			System.out.println(parameters[2]);
 		}
 		finally
@@ -25,6 +26,7 @@ public class Zad1 {
 		
 		System.out.println(parameters[1]);
 		
+		callback.setFlag(true);
 		
 		
 	}
@@ -48,6 +50,11 @@ public class Zad1 {
 public Class Callback
 {
 	private boolean flag;
+	
+	public Callback(boolean flag)
+	{
+		this.flag = flag;
+	}
 	
 	public boolean getFlag()
 	{
