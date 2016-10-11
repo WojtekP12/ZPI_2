@@ -1,8 +1,33 @@
 package zad1;
 
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Zad1 {
+	
+	public void (String... parameters, Callback callback)
+	{
+		File file = new File(parameters[0]);
+		PrintWriter zapis = new PrinWriter(parameters[0]);
+		
+		try
+		{
+			zapis.println("Hello world");
+		}
+		catch(Exception e)
+		{
+			System.out.println(parameters[2]);
+		}
+		finally
+		{
+			zapis.close();
+		}
+		
+		System.out.println(parameters[1]);
+		
+		
+		
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
